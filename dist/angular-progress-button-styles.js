@@ -73,7 +73,8 @@
                 'progressButton': '&',
                 'pbStyle': '@',
                 'pbDirection': '@',
-                'pbProfile': '@'
+                'pbProfile': '@',
+                'pbEvent': '@'
             },
             template: '<span class="content" ng-transclude></span>' + 
                       '<span class="progress">' +
@@ -104,7 +105,7 @@
                     $element.toggleClass('disabled', newValue);
                 });
 
-                $element.on('click', function() {
+                $element.on($scope.pbEvent || 'click', function () {
                     $scope.$apply(function() {
                         if ($scope.disabled) return;
                         $scope.disabled = true;
